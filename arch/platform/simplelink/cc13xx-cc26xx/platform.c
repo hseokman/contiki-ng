@@ -76,6 +76,9 @@
 #include "clock-arch.h"
 #include "uart0-arch.h"
 #include "trng-arch.h"
+#ifdef EXT_FLASH_SPI_CONTROLLER
+#include "ext-flash.h"
+#endif
 /*---------------------------------------------------------------------------*/
 #include "rf/rf.h"
 #include "rf/ble-beacond.h"
@@ -182,7 +185,11 @@ platform_init_stage_one(void)
 #endif
 #if TI_SPI_CONF_ENABLE
   SPI_init();
-#endif
+#ifdef EXT_FLASH_SPI_CONTROLLER
+  /* Make sure the external flash is in the lower power mode */
+  ext_flash_init(NULL);
+#endif // EXT_FLASH_SPI_CONTROLLER
+#endif // TI_SPI_CONF_ENABLE
 #if TI_NVS_CONF_ENABLE
   NVS_init();
 #endif

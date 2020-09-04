@@ -152,27 +152,6 @@ extern const PIN_Config BoardGpioInitTable[];
 #define CC1312R1_LAUNCHXL_UART_RTS              CC1312R1_LAUNCHXL_UART0_RTS
 
 /*!
- *  @brief  Initialize the general board specific settings
- *
- *  This function initializes the general board specific settings.
- */
-void CC1312R1_LAUNCHXL_initGeneral(void);
-
-/*!
- *  @brief  Turn off the external flash on LaunchPads
- *
- */
-void CC1312R1_LAUNCHXL_shutDownExtFlash(void);
-
-/*!
- *  @brief  Wake up the external flash present on the board files
- *
- *  This function toggles the chip select for the amount of time needed
- *  to wake the chip up.
- */
-void CC1312R1_LAUNCHXL_wakeUpExtFlash(void);
-
-/*!
  *  @def    CC1312R1_LAUNCHXL_ADCBufName
  *  @brief  Enum of ADCBufs
  */

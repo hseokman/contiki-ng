@@ -898,7 +898,7 @@ const SPICC26X2DMA_HWAttrs spiCC26X2DMAHWAttrs[CC1312R1_LAUNCHXL_SPICOUNT] = {
         .mosiPin            = CC1312R1_LAUNCHXL_SPI0_MOSI,
         .misoPin            = CC1312R1_LAUNCHXL_SPI0_MISO,
         .clkPin             = CC1312R1_LAUNCHXL_SPI0_CLK,
-        .csnPin             = CC1312R1_LAUNCHXL_SPI0_CSN,
+        .csnPin             = PIN_UNASSIGNED,
         .minDmaTransferSize = 10
     },
 #endif
@@ -1063,31 +1063,8 @@ const Watchdog_Config Watchdog_config[CC1312R1_LAUNCHXL_WATCHDOGCOUNT] = {
 const uint_least8_t Watchdog_count = CC1312R1_LAUNCHXL_WATCHDOGCOUNT;
 
 /*
- *  Board-specific initialization function to disable external flash.
- *  This function is defined in the file CC1312R1_LAUNCHXL_fxns.c
+ *  ======== Board_initHook ========
  */
-extern void Board_initHook(void);
-
-/*
- *  ======== CC1312R1_LAUNCHXL_initGeneral ========
- */
-void CC1312R1_LAUNCHXL_initGeneral(void)
+void Board_initHook(void)
 {
-    Power_init();
-
-    if (PIN_init(BoardGpioInitTable) != PIN_SUCCESS) {
-        /* Error with PIN_init */
-        while (1);
-    }
-
-    /* Perform board-specific initialization */
-    Board_initHook();
-}
-
-/*
- *  ======== Board_init ========
- */
-void Board_init(void)
-{
-    CC1312R1_LAUNCHXL_initGeneral();
 }

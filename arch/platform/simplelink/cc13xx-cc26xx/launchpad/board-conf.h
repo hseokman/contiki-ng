@@ -51,6 +51,7 @@
 #define BOARD_CONF_H_
 /*---------------------------------------------------------------------------*/
 #include "rf-conf.h"
+#include "Board.h"
 /*---------------------------------------------------------------------------*/
 /**
  * \name LED configurations for the dev/leds.h API.
@@ -102,7 +103,7 @@
 #if TI_SPI_CONF_SPI0_ENABLE
 #define EXT_FLASH_SPI_CONTROLLER      Board_SPI0
 
-#define EXT_FLASH_SPI_PIN_SCK         Board_SPI0_SCK
+#define EXT_FLASH_SPI_PIN_SCK         Board_SPI0_CLK
 #define EXT_FLASH_SPI_PIN_MOSI        Board_SPI0_MOSI
 #define EXT_FLASH_SPI_PIN_MISO        Board_SPI0_MISO
 #define EXT_FLASH_SPI_PIN_CS          Board_SPI_FLASH_CS
